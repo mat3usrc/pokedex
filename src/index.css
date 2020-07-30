@@ -1,0 +1,8 @@
+.pokemon-card {
+  transition: transform 0.5s;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
