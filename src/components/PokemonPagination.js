@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Pagination from 'react-bootstrap/Pagination';
-import { increment, decrement } from '../../store/modules/pokemon';
+import { increment, decrement } from '../store/modules/pokemon';
 
 const PokemonPagination = () => {
   const dispatch = useDispatch();

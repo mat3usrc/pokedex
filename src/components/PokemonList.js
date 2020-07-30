@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
-import { fetchPokemons } from '../../store/modules/pokemon';
-import PokemonCard from '../PokemonCard';
+import { fetchPokemons } from '../store/modules/pokemon';
+import PokemonCard from './PokemonCard';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -15,8 +15,8 @@ const PokemonList = () => {
 
   return (
     <Row>
-      {pokemons.map(({ name }) => (
-        <PokemonCard key={name} name={name} />
+      {pokemons.map(({ name, url }) => (
+        <PokemonCard key={name} name={name} url={url} />
       ))}
     </Row>
   );

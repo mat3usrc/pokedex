@@ -13,13 +13,23 @@ export const fetchPokemons = createAsyncThunk(
   }
 );
 
+export const fetchPokemon = createAsyncThunk(
+  'pokemon/fetchPokemon',
+  async ({ url }) => {
+    const response = await apiService.getPokemon(url);
+    return response;
+  }
+);
+
 const initialState = {
   pokemons: [],
+  pokemon: {},
   error: null,
   page: 1,
   perPage: 10,
   next: null,
   previous: null,
+  detailsModal: false,
 };
 
 export const slice = createSlice({
@@ -32,6 +42,9 @@ export const slice = createSlice({
     decrement: (state) => {
       state.page -= 1;
     },
+    setDetailsModal: (state, { payload }) => {
+      state.detailsModal = payload;
+    },
   },
   extraReducers: {
     [fetchPokemons.fulfilled]: (state, action) => {
@@ -40,9 +53,14 @@ export const slice = createSlice({
       state.next = next;
       state.previous = previous;
     },
+    [fetchPokemon.fulfilled]: (state, action) => {
+      console.log(action.payload);
+      state.pokemon = action.payload;
+      state.detailsModal = true;
+    },
   },
 });
 
-export const { increment, decrement } = slice.actions;
+export const { increment, decrement, setDetailsModal } = slice.actions;
 
 export default slice.reducer;
