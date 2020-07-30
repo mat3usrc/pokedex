@@ -5,3 +5,7 @@ export const getPokemons = (limit, offSet) => {
     `${baseUrl}/pokemon?limit=${limit}&offset=${offSet}`
   ).then((response) => response.json());
 };
+
+export default {
+  getPokemons,
+};
