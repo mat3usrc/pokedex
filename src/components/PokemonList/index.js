@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
-import { selectAllPokemons, fetchPokemons } from '../../store/modules/pokemon';
+import { fetchPokemons } from '../../store/modules/pokemon';
 import PokemonCard from '../PokemonCard';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
-  const pokemons = useSelector(selectAllPokemons);
-
-  const pokemonStatus = useSelector((state) => state.pokemon.status);
+  const pokemons = useSelector((state) => state.pokemon.pokemons);
+  const page = useSelector((state) => state.pokemon.page);
 
   useEffect(() => {
-    if (pokemonStatus === 'idle') {
-      dispatch(fetchPokemons({ limit: 10, offSet: 0 }));
-    }
-  }, [pokemonStatus, dispatch]);
+    dispatch(fetchPokemons());
+  }, [page, dispatch]);
 
   return (
     <Row>

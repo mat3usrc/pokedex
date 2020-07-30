@@ -3,29 +3,46 @@ import apiService from '../../api';
 
 export const fetchPokemons = createAsyncThunk(
   'pokemon/fetchPokemons',
-  async ({ limit, offSet }) => {
-    const response = await apiService.getPokemons(limit, offSet);
-    return response.results;
+  async (_, thunkApi) => {
+    const state = thunkApi.getState();
+
+    const { page, perPage } = state.pokemon;
+    const offSet = (page - 1) * perPage;
+    const response = await apiService.getPokemons(perPage, offSet);
+    return response;
   }
 );
 
 const initialState = {
   pokemons: [],
-  status: 'idle',
   error: null,
+  page: 1,
+  perPage: 10,
+  next: null,
+  previous: null,
 };
 
 export const slice = createSlice({
   name: 'pokemon',
   initialState,
+  reducers: {
+    increment: (state) => {
+      state.page += 1;
+    },
+    decrement: (state) => {
+      state.page -= 1;
+    },
+  },
   extraReducers: {
     [fetchPokemons.fulfilled]: (state, action) => {
-      state.status = 'success';
-      state.pokemons = state.pokemons.concat(action.payload);
+      const { results, next, previous } = action.payload;
+      state.pokemons = results;
+      state.next = next;
+      state.previous = previous;
     },
   },
 });
 
-export const selectAllPokemons = (state) => state.pokemon.pokemons;
+export const { increment, decrement } = slice.actions;
 
 export default slice.reducer;
