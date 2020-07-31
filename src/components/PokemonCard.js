@@ -15,10 +15,9 @@ const PokemonCard = ({ name, url }) => {
   };
 
   return (
-    <Col xs={3} className="mb-3">
+    <Col xl={2} lg={2} md={3} sm={4} className="mb-3 px-2">
       <Card className="pokemon-card h-100" onClick={handleClick}>
         <Card.Img
-          variant="top"
           src={`https://img.pokemondb.net/sprites/home/normal/${name}.png`}
         />
         <Card.Body>

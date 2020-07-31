@@ -30,15 +30,20 @@ const PokemonDetailsEvolution = ({ chain }) => {
   }, [chain]);
 
   return (
-    <Row>
-      {evolutions.map((evolution) => (
-        <Col key={evolution}>
+    <Col xs={12}>
+      <Row
+        noGutters
+        className="align-items-center justify-content-around h-100"
+      >
+        {evolutions.map((evolution) => (
           <Image
+            key={evolution}
             src={`https://img.pokemondb.net/sprites/sword-shield/icon/${evolution}.png`}
+            roundedCircle
           />
-        </Col>
-      ))}
-    </Row>
+        ))}
+      </Row>
+    </Col>
   );
 };
 

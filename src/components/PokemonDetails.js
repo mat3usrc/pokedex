@@ -35,20 +35,31 @@ const PokemonDetails = () => {
   return (
     <Modal size="xl" show={detailsModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{capitalize(pokemon.name)}</Modal.Title>
+        <Modal.Title>
+          {capitalize(pokemon.name)}
+          {'    '}
+          <em className="text-secondary">
+            Nº {pokemon.id ? pokemon.id.toString().padStart(3, '0') : null}
+          </em>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row noGutters>
-          <Col xs={6}>
-            <Row>
-              <Image
-                src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`}
-                fluid
-              />
+          <Col xl={6} lg={6} md={12}>
+            <Row noGutters className="h-100">
+              <Col
+                xs={12}
+                className="d-flex align-items-center justify-content-center"
+              >
+                <Image
+                  src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`}
+                  fluid
+                />
+              </Col>
+              <PokemonDetailsEvolution chain={pokemon.evolution_chain.chain} />
             </Row>
-            <PokemonDetailsEvolution chain={pokemon.evolution_chain.chain} />
           </Col>
-          <Col xs={6}>
+          <Col xl={6} lg={6} md={12}>
             <Card>
               <Card.Body>
                 <Row noGutters className="mb-3">
@@ -69,7 +80,7 @@ const PokemonDetails = () => {
                         color-${type.type.name}
                       `}
                     >
-                      {type.type.name}
+                      {capitalize(type.type.name)}
                     </div>
                   ))}
                 </Row>
