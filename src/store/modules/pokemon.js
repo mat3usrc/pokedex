@@ -16,8 +16,8 @@ export const fetchPokemons = createAsyncThunk(
 export const fetchPokemon = createAsyncThunk(
   'pokemon/fetchPokemon',
   async ({ url }) => {
-    const response = await apiService.getPokemon(url);
-    return response;
+    const pokemon = await apiService.getPokemon(url);
+    return pokemon;
   }
 );
 
@@ -26,6 +26,7 @@ const initialState = {
   pokemon: {
     types: [],
     stats: [],
+    evolution_chain: {},
   },
   error: null,
   page: 1,
@@ -57,7 +58,6 @@ export const slice = createSlice({
       state.previous = previous;
     },
     [fetchPokemon.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.pokemon = action.payload;
       state.detailsModal = true;
     },

@@ -7,7 +7,17 @@ export const getPokemons = async (limit, offSet) => {
 };
 
 export const getPokemon = async (url) => {
-  return fetch(url).then((response) => response.json());
+  const pokemon = await fetch(url).then((response) => response.json());
+
+  const pokemonSpecies = await fetch(
+    `${baseUrl}/pokemon-species/${pokemon.id}`
+  ).then((response) => response.json());
+
+  const evolutionChain = await fetch(
+    pokemonSpecies.evolution_chain.url
+  ).then((response) => response.json());
+
+  return { ...pokemon, evolution_chain: evolutionChain };
 };
 
 export default {

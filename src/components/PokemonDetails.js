@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image';
 import { setDetailsModal } from '../store/modules/pokemon';
+import PokemonDetailsEvolution from './PokemonDetailsEvolution';
 
 const PokemonDetails = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,15 @@ const PokemonDetails = () => {
       </Modal.Header>
       <Modal.Body>
         <Row noGutters>
-          <Col xs={6}></Col>
+          <Col xs={6}>
+            <Row>
+              <Image
+                src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`}
+                fluid
+              />
+            </Row>
+            <PokemonDetailsEvolution chain={pokemon.evolution_chain.chain} />
+          </Col>
           <Col xs={6}>
             <Card>
               <Card.Body>
