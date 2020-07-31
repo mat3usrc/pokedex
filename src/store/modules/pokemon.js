@@ -23,7 +23,10 @@ export const fetchPokemon = createAsyncThunk(
 
 const initialState = {
   pokemons: [],
-  pokemon: {},
+  pokemon: {
+    types: [],
+    stats: [],
+  },
   error: null,
   page: 1,
   perPage: 10,
