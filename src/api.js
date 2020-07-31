@@ -6,8 +6,10 @@ export const getPokemons = async (limit, offSet) => {
   ).then((response) => response.json());
 };
 
-export const getPokemon = async (url) => {
-  const pokemon = await fetch(url).then((response) => response.json());
+export const getPokemon = async (search) => {
+  const pokemon = await fetch(`${baseUrl}/pokemon/${search}`).then((response) =>
+    response.json()
+  );
 
   const pokemonSpecies = await fetch(
     `${baseUrl}/pokemon-species/${pokemon.id}`

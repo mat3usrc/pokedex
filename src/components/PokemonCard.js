@@ -6,7 +6,12 @@ import { fetchPokemon } from '../store/modules/pokemon';
 
 const PokemonCard = ({ name, url }) => {
   const dispatch = useDispatch();
-  const handleClick = () => dispatch(fetchPokemon({ url }));
+
+  const handleClick = () => {
+    const urlArray = url.split('/');
+    const id = urlArray[urlArray.length - 2];
+    dispatch(fetchPokemon({ search: id }));
+  };
 
   return (
     <Col xs={3} className="mb-3">
