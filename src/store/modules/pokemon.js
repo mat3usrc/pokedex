@@ -24,6 +24,7 @@ export const fetchPokemon = createAsyncThunk(
 const initialState = {
   pokemons: [],
   pokemon: {
+    name: '',
     types: [],
     stats: [],
     evolution_chain: {},

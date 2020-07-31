@@ -8,6 +8,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image';
 import { setDetailsModal } from '../store/modules/pokemon';
 import PokemonDetailsEvolution from './PokemonDetailsEvolution';
+import { capitalize } from '../utils';
 
 const PokemonDetails = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const PokemonDetails = () => {
   return (
     <Modal size="xl" show={detailsModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{pokemon.name}</Modal.Title>
+        <Modal.Title>{capitalize(pokemon.name)}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row noGutters>

@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { useDispatch } from 'react-redux';
 import { fetchPokemon } from '../store/modules/pokemon';
+import { capitalize } from '../utils';
 
 const PokemonCard = ({ name, url }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const PokemonCard = ({ name, url }) => {
           src={`https://img.pokemondb.net/sprites/home/normal/${name}.png`}
         />
         <Card.Body>
-          <Card.Title className="h6">{name}</Card.Title>
+          <Card.Title className="h6">{capitalize(name)}</Card.Title>
         </Card.Body>
       </Card>
     </Col>
