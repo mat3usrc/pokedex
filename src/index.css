@@ -13,6 +13,11 @@
   color: #fff;
 }
 
+.modal-loading > .modal-dialog > .modal-content {
+  background-color: transparent !important;
+  border: none;
+}
+
 .color-bug {
   background-color: #a8b820;
 }

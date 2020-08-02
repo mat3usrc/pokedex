@@ -35,6 +35,7 @@ const initialState = {
   previous: null,
   detailsModal: false,
   detailsError: false,
+  loading: false,
 };
 
 export const slice = createSlice({
@@ -61,11 +62,16 @@ export const slice = createSlice({
       state.next = next;
       state.previous = previous;
     },
+    [fetchPokemon.pending]: (state) => {
+      state.loading = true;
+    },
     [fetchPokemon.fulfilled]: (state, action) => {
+      state.loading = false;
       state.pokemon = action.payload;
       state.detailsModal = true;
     },
     [fetchPokemon.rejected]: (state) => {
+      state.loading = false;
       state.detailsError = true;
     },
   },

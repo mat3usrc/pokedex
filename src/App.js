@@ -5,6 +5,7 @@ import PokemonPagination from './components/PokemonPagination';
 import PokemonSearch from './components/PokemonSearch';
 import PokemonDetails from './components/PokemonDetails';
 import CustomAlert from './components/CustomAlert';
+import LoadingModal from './components/LoadingModal';
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
       <PokemonList />
       <PokemonPagination />
       <PokemonDetails />
+      <LoadingModal />
     </Container>
   );
 };
