@@ -37,6 +37,7 @@ const initialState = {
   detailsError: false,
   loading: false,
   favorites: [],
+  selected: 'pokemons',
 };
 
 export const slice = createSlice({
@@ -60,8 +61,11 @@ export const slice = createSlice({
     },
     removeFavorite: (state, { payload }) => {
       state.favorites = state.favorites.filter(
-        (favorite) => favorite !== payload
+        (favorite) => favorite.name !== payload
       );
+    },
+    setSelected: (state, { payload }) => {
+      state.selected = payload;
     },
   },
   extraReducers: {
@@ -102,6 +106,7 @@ export const {
   setDetailsError,
   addFavorite,
   removeFavorite,
+  setSelected,
 } = slice.actions;
 
 export default slice.reducer;

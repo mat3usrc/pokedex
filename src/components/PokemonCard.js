@@ -12,7 +12,7 @@ const PokemonCard = ({ name, url }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    setIsFavorite(favorites.includes(name));
+    setIsFavorite(favorites.find((fav) => fav.name === name));
   }, [favorites, name]);
 
   const handleClickDetails = () => {
@@ -25,7 +25,7 @@ const PokemonCard = ({ name, url }) => {
     event.stopPropagation();
 
     if (isFavorite) dispatch(removeFavorite(name));
-    else dispatch(addFavorite(name));
+    else dispatch(addFavorite({ name }));
   };
 
   return (

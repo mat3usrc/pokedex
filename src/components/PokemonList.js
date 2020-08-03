@@ -6,7 +6,8 @@ import PokemonCard from './PokemonCard';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
-  const pokemons = useSelector((state) => state.pokemon.pokemons);
+  const selected = useSelector((state) => state.pokemon.selected);
+  const pokemons = useSelector((state) => state.pokemon[selected]);
   const page = useSelector((state) => state.pokemon.page);
 
   useEffect(() => {
