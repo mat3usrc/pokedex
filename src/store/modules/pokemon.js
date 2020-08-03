@@ -35,7 +35,7 @@ const initialState = {
   previous: null,
   detailsModal: false,
   detailsError: false,
-  loading: true,
+  loading: false,
 };
 
 export const slice = createSlice({

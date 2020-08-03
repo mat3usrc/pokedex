@@ -40,7 +40,7 @@ const PokemonDetailsEvolution = ({ chain }) => {
   };
 
   return (
-    <Col xs={12} className="mb-md-3">
+    <Col xs={12} className="mb-3 mb-lg-0">
       <Card className="h-100">
         <Card.Body>
           <Card.Title>Evolution Chain:</Card.Title>

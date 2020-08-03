@@ -14,7 +14,7 @@ const PokemonList = () => {
   }, [page, dispatch]);
 
   return (
-    <Row>
+    <Row className="justify-content-center">
       {pokemons.map(({ name, url }) => (
         <PokemonCard key={name} name={name} url={url} />
       ))}
