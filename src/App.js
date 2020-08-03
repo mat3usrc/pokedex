@@ -12,13 +12,13 @@ import PokemonSelectList from './components/PokemonSelectList';
 
 export const App = () => {
   return (
-    <Container fluid>
+    <Container fluid className="mt-4">
       <Container>
         <Row className="d-flex justify-content-between">
-          <Col xs={8}>
+          <Col lg={8} md={8} sm={12} className="mb-4 mb-md-0">
             <PokemonSearch />
           </Col>
-          <Col xs={3}>
+          <Col lg={3} md={3} sm={12}>
             <PokemonSelectList />
           </Col>
         </Row>

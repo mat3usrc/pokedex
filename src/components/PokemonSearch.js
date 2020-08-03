@@ -28,7 +28,7 @@ const PokemonSearch = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Row className="mb-5">
+      <Row>
         <InputGroup>
           <FormControl
             placeholder="Name or ID..."
