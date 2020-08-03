@@ -6,6 +6,6 @@
 
 ### Extras:
 
-- [x] Adicionar/Remove Pokemons favoritos e sua listagem
+- [x] Adicionar/Remover Pokemons favoritos e sua listagem
 - [x] Layout Responsivo
 - [x] Aplicando Redux
