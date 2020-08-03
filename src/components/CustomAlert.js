@@ -1,7 +1,7 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 import { useSelector, useDispatch } from 'react-redux';
-import { setDetailsError } from '../store/modules/pokemon';
+import { setDetailsError } from '../reducers/pokemon';
 
 const CustomAlert = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
-import { fetchPokemons } from '../store/modules/pokemon';
+import { fetchPokemons } from '../reducers/pokemon';
 import PokemonCard from './PokemonCard';
 
 const PokemonList = () => {

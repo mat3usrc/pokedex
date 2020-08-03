@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image';
-import { setDetailsModal } from '../store/modules/pokemon';
+import { setDetailsModal } from '../reducers/pokemon';
 import PokemonDetailsEvolution from './PokemonDetailsEvolution';
 import { capitalize } from '../utils';
 

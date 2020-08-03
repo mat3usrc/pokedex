@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import apiService from '../../api';
+import apiService from '../api';
 
 export const fetchPokemons = createAsyncThunk(
   'pokemon/fetchPokemons',
@@ -36,6 +36,7 @@ const initialState = {
   detailsModal: false,
   detailsError: false,
   loading: false,
+  favorites: [],
 };
 
 export const slice = createSlice({
@@ -53,6 +54,14 @@ export const slice = createSlice({
     },
     setDetailsError: (state, { payload }) => {
       state.detailsError = payload;
+    },
+    addFavorite: (state, { payload }) => {
+      state.favorites = [...state.favorites, payload];
+    },
+    removeFavorite: (state, { payload }) => {
+      state.favorites = state.favorites.filter(
+        (favorite) => favorite !== payload
+      );
     },
   },
   extraReducers: {
@@ -91,6 +100,8 @@ export const {
   decrement,
   setDetailsModal,
   setDetailsError,
+  addFavorite,
+  removeFavorite,
 } = slice.actions;
 
 export default slice.reducer;
