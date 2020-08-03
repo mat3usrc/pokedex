@@ -44,22 +44,21 @@ const PokemonDetails = () => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Row noGutters>
-          <Col xl={6} lg={6} md={12}>
+        <Row>
+          <Col xl={7} lg={7} md={12}>
             <Row noGutters className="h-100">
-              <Col
-                xs={12}
-                className="d-flex align-items-center justify-content-center"
-              >
-                <Image
-                  src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`}
-                  fluid
-                />
+              <Col xs={12} className="mb-3">
+                <Card className="w-100 h-100 pb-md-5 d-flex align-items-center justify-content-center">
+                  <Image
+                    src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`}
+                    className="card-img-pokemon"
+                  />
+                </Card>
               </Col>
               <PokemonDetailsEvolution chain={pokemon.evolution_chain.chain} />
             </Row>
           </Col>
-          <Col xl={6} lg={6} md={12}>
+          <Col xl={5} lg={5} md={12}>
             <Card>
               <Card.Body>
                 <Row noGutters className="mb-3">

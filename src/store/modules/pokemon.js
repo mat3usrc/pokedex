@@ -67,6 +67,7 @@ export const slice = createSlice({
     },
     [fetchPokemon.fulfilled]: (state, action) => {
       state.loading = false;
+      state.detailsError = false;
       state.pokemon = action.payload;
       state.detailsModal = true;
     },

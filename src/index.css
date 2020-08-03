@@ -18,6 +18,19 @@
   border: none;
 }
 
+.icon-arrow {
+  display: block;
+  font-size: 1.4em;
+}
+
+.icon-arrow-e::before {
+  content: '\2192\FE0E';
+}
+
+.card-img-pokemon {
+  width: 142px;
+}
+
 .color-bug {
   background-color: #a8b820;
 }
