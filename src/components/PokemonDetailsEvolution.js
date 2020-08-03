@@ -49,18 +49,17 @@ const PokemonDetailsEvolution = ({ chain }) => {
             className="align-items-center justify-content-around h-75"
           >
             {evolutions.map((evolution, index) => (
-              <Col
-                xs={4}
-                key={evolution}
-                className="d-flex align-items-center justify-content-around"
-              >
-                <div>
-                  <Image
-                    src={`https://img.pokemondb.net/sprites/sword-shield/icon/${evolution}.png`}
-                  />
-                  <p className="mt-3">{capitalize(evolution)}</p>
-                </div>
-                {checkLastItem(index)}
+              <Col xs={4} key={evolution} className="px-1 pb-1">
+                <Row noGutters className="align-items-center">
+                  <Col xs={9} className="d-flex flex-column align-items-center">
+                    <Image
+                      src={`https://img.pokemondb.net/sprites/sword-shield/icon/${evolution}.png`}
+                      className="w-100 mb-2"
+                    />
+                    <small>{capitalize(evolution)}</small>
+                  </Col>
+                  <Col xs={3}>{checkLastItem(index)}</Col>
+                </Row>
               </Col>
             ))}
           </Row>

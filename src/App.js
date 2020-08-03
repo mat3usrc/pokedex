@@ -9,13 +9,15 @@ import LoadingModal from './components/LoadingModal';
 
 export const App = () => {
   return (
-    <Container>
-      <PokemonSearch />
-      <CustomAlert />
-      <PokemonList />
-      <PokemonPagination />
-      <PokemonDetails />
-      <LoadingModal />
+    <Container fluid>
+      <Container>
+        <PokemonSearch />
+        <CustomAlert />
+        <PokemonList />
+        <PokemonPagination />
+        <PokemonDetails />
+        <LoadingModal />
+      </Container>
     </Container>
   );
 };
