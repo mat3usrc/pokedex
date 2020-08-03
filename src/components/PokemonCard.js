@@ -30,11 +30,14 @@ const PokemonCard = ({ name, url }) => {
 
   return (
     <Col xl={2} lg={2} md={3} sm={4} xs={5} className="mb-3 px-2">
-      <Card className="pokemon-card h-100" onClick={handleClickDetails}>
-        <Card.Header>
+      <Card
+        border="primary"
+        className="pokemon-card h-100"
+        onClick={handleClickDetails}
+      >
+        <Card.Header className="bg-secondary">
           <Card.Img
             src={`https://img.pokemondb.net/sprites/home/normal/${name}.png`}
-            className="bg-light"
           />
         </Card.Header>
         <Card.Body>
